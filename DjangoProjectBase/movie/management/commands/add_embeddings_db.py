@@ -1,5 +1,17 @@
-from django.core.management.base import BaseCommand
+import os
+import sys
+
+# Add the path to the parent directory of your Django project to the Python path
+current_directory = os.path.dirname(os.path.abspath(__file__))
+parent_directory = os.path.dirname(current_directory)
+project_directory = os.path.dirname(parent_directory)
+sys.path.append(project_directory)
+
+# Now you should be able to import the Movie model
 from movie.models import Movie
+
+from django.core.management.base import BaseCommand
+from django.db import models
 import json
 import os
 import numpy as np
